@@ -67,7 +67,7 @@ On the HPC, ensure:
 - [x] Genotype files converted to BED format (`ukb_genoHM3_bed.*`)
 - [x] Model SNPs prepared (`ukb_genoHM3_modelSNPs.txt`)
 - [x] Population keep files exist in `sqc/population.20220316/`
-- [x] Phenotype file: `pheno/isolation_run_control.tsv.gz`
+- [x] Phenotype file: `pheno/isolation_run_binary.tsv.gz`
 - [x] Covariate file: `sqc/sqc.20220316.tsv.gz`
 
 ### Step 1: Filter to Populations
@@ -83,9 +83,9 @@ sbatch 0a_filter_populations.sbatch.sh
 tail -f 0a_filter.out
 
 # This creates:
-# - isolation_run_control.EUR_MM.tsv.gz
-# - isolation_run_control.EUR_Male.tsv.gz
-# - isolation_run_control.EUR_Female.tsv.gz
+# - isolation_run_binary.EUR_MM.tsv.gz
+# - isolation_run_binary.EUR_Male.tsv.gz
+# - isolation_run_binary.EUR_Female.tsv.gz
 # - sqc.EUR_MM.tsv.gz
 # - sqc.EUR_Male.tsv.gz
 # - sqc.EUR_Female.tsv.gz
@@ -136,9 +136,9 @@ BOLT-LMM_SI-Loneliness/
 │       │   └── [same 6 files]
 │       └── EUR_Female/
 │           └── [same 6 files]
-├── isolation_run_control.EUR_MM.tsv.gz
-├── isolation_run_control.EUR_Male.tsv.gz
-├── isolation_run_control.EUR_Female.tsv.gz
+├── isolation_run_binary.EUR_MM.tsv.gz
+├── isolation_run_binary.EUR_Male.tsv.gz
+├── isolation_run_binary.EUR_Female.tsv.gz
 ├── sqc.EUR_MM.tsv.gz
 ├── sqc.EUR_Male.tsv.gz
 └── sqc.EUR_Female.tsv.gz
@@ -358,7 +358,7 @@ sbatch 0a_filter_populations.sbatch.sh
 **Issue: Low case/control counts**
 ```bash
 # Check phenotype distributions
-zcat isolation_run_control.EUR_MM.tsv.gz | awk -F'\t' '{print $3}' | sort | uniq -c
+zcat isolation_run_binary.EUR_MM.tsv.gz | awk -F'\t' '{print $3}' | sort | uniq -c
 
 # For binary traits, need sufficient cases and controls (>100 each ideally)
 ```

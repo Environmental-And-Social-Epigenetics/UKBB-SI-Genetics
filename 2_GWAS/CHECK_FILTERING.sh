@@ -36,7 +36,7 @@ files_to_check=(
     "${ukb21942_d}/sqc/population.20220316/EUR_MM.keep"
     "${ukb21942_d}/sqc/population.20220316/EUR_Male.keep"
     "${ukb21942_d}/sqc/population.20220316/EUR_Female.keep"
-    "${ukb21942_d}/pheno/isolation_run_control.tsv.gz"
+    "${ukb21942_d}/pheno/isolation_run_binary.tsv.gz"
     "${ukb21942_d}/sqc/sqc.20220316.tsv.gz"
 )
 
@@ -52,9 +52,9 @@ echo ""
 # Expected output files
 echo "5. Expected filtered files (6 total):"
 expected_files=(
-    "isolation_run_control.EUR_MM.tsv.gz"
-    "isolation_run_control.EUR_Male.tsv.gz"
-    "isolation_run_control.EUR_Female.tsv.gz"
+    "isolation_run_binary.EUR_MM.tsv.gz"
+    "isolation_run_binary.EUR_Male.tsv.gz"
+    "isolation_run_binary.EUR_Female.tsv.gz"
     "sqc.EUR_MM.tsv.gz"
     "sqc.EUR_Male.tsv.gz"
     "sqc.EUR_Female.tsv.gz"

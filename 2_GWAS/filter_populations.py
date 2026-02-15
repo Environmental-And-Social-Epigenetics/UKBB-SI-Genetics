@@ -7,6 +7,7 @@ More robust than bash/awk approach - matches working repo's filter_to_EUR_python
 import gzip
 import sys
 import os
+import argparse
 
 def read_keep_ids(keep_file):
     """Read IIDs from keep file"""
@@ -57,17 +58,17 @@ def filter_file(input_file, output_file, keep_ids, ensure_fid_iid_header=False):
     
     return n_in, n_out
 
-def filter_population(population_name):
+def filter_population(population_name, pheno_prefix):
     """Filter phenotype and covariate files for one population"""
     # Paths
     ukb21942_d = '/home/mabdel03/data/files/Isolation_Genetics/GWAS/Scripts/ukb21942'
     srcdir = '/home/mabdel03/data/files/Isolation_Genetics/GWAS/Scripts/ukb21942/BOLT-LMM_SI-Loneliness'
     
     keep_file = f'{ukb21942_d}/sqc/population.20220316/{population_name}.keep'
-    pheno_in = f'{ukb21942_d}/pheno/isolation_run_control.tsv.gz'
+    pheno_in = f'{ukb21942_d}/pheno/{pheno_prefix}.tsv.gz'
     covar_in = f'{ukb21942_d}/sqc/sqc.20220316.tsv.gz'
     
-    pheno_out = f'{srcdir}/isolation_run_control.{population_name}.tsv.gz'
+    pheno_out = f'{srcdir}/{pheno_prefix}.{population_name}.tsv.gz'
     covar_out = f'{srcdir}/sqc.{population_name}.tsv.gz'
     
     print("=" * 60)
@@ -125,17 +126,28 @@ def filter_population(population_name):
 
 def main():
     """Filter all three populations"""
+    parser = argparse.ArgumentParser(
+        description="Filter phenotype and covariate files for all BOLT-LMM populations."
+    )
+    parser.add_argument(
+        "--pheno-prefix",
+        default="isolation_run_binary",
+        help="Phenotype file prefix under ukb21942/pheno (default: isolation_run_binary).",
+    )
+    args = parser.parse_args()
+
     populations = ['EUR_MM', 'EUR_Male', 'EUR_Female']
     
     print()
     print("=" * 60)
     print("BOLT-LMM Loneliness: Filter All Populations")
+    print(f"Phenotype prefix: {args.pheno_prefix}")
     print("=" * 60)
     print()
     
     success_count = 0
     for pop in populations:
-        if filter_population(pop):
+        if filter_population(pop, args.pheno_prefix):
             success_count += 1
         print()
     

@@ -145,7 +145,7 @@ def main():
         print("=" * 70)
         
         # Population-specific phenotype file for sample sizes
-        pheno_file = f'{srcdir}/isolation_run_control.{population}.tsv.gz'
+        pheno_file = f'{srcdir}/isolation_run_binary.{population}.tsv.gz'
         
         # Check if phenotype file exists
         if not os.path.exists(pheno_file):

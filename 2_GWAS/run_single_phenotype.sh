@@ -4,15 +4,18 @@ set -beEo pipefail
 # Simplified BOLT-LMM script: runs one phenotype with one covariate set for one population
 # Processes the FULL GENOME (no variant splitting)
 
-if [ $# -ne 3 ]; then
-    echo "Usage: $0 <phenotype> <covar_str> <keep_set>" >&2
-    echo "Example: $0 Loneliness Day_NoPCs EUR_MM" >&2
+if [ $# -lt 3 ] || [ $# -gt 5 ]; then
+    echo "Usage: $0 <phenotype> <covar_str> <keep_set> [pheno_prefix] [results_subdir]" >&2
+    echo "Example (binary): $0 Loneliness Day_NoPCs EUR_MM" >&2
+    echo "Example (continuous): $0 Loneliness Day_NoPCs EUR_MM isolation_run_continuous results_continuous" >&2
     exit 1
 fi
 
 phenotype=$1
 covar_str=$2
 keep_set=$3
+pheno_prefix=${4:-isolation_run_binary}
+results_subdir=${5:-results}
 
 # Directories
 REPODIR="/home/mabdel03/data/files/Isolation_Genetics/GWAS/Scripts/ukb21942"
@@ -26,7 +29,7 @@ echo "Population: ${keep_set}"
 echo "========================================"
 
 # Output directory
-out_dir="${SRCDIR}/results/${covar_str}/${keep_set}"
+out_dir="${SRCDIR}/${results_subdir}/${covar_str}/${keep_set}"
 mkdir -p ${out_dir}
 
 out_file="${out_dir}/bolt_${phenotype}.${covar_str}"
@@ -49,7 +52,7 @@ ld_scores_file="/home/mabdel03/data/software/BOLT-LMM_v2.5/tables/LDSCORE.1000G_
 genetic_map_file="/home/mabdel03/data/software/BOLT-LMM_v2.5/tables/genetic_map_hg19_withX.txt.gz"
 
 # Use population-filtered files (created by filter_to_population.sh)
-pheno_file_pop="${SRCDIR}/isolation_run_control.${keep_set}.tsv.gz"
+pheno_file_pop="${SRCDIR}/${pheno_prefix}.${keep_set}.tsv.gz"
 covar_file_pop="${SRCDIR}/sqc.${keep_set}.tsv.gz"
 
 # Set up covariates based on covar_str
@@ -67,11 +70,13 @@ fi
 echo "Configuration:"
 echo "  Genotype: ${genotype_bfile}"
 echo "  Phenotype: ${phenotype}"
+echo "  Phenotype prefix: ${pheno_prefix}"
 echo "  Phenotype file: ${pheno_file_pop}"
 echo "  Covariate file: ${covar_file_pop}"
 echo "  Quantitative covariates: age"
 echo "  Categorical covariates: sex, array"
 echo "  Model SNPs: ${model_snps_file} (~444K SNPs)"
+echo "  Results subdir: ${results_subdir}"
 echo "  Output: ${out_file}.stats"
 echo ""
 

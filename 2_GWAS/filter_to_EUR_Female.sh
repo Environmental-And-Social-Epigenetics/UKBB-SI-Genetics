@@ -14,11 +14,11 @@ echo ""
 
 # Input files
 keep_file="${ukb21942_d}/sqc/population.20220316/EUR_Female.keep"
-pheno_file="${ukb21942_d}/pheno/isolation_run_control.tsv.gz"
+pheno_file="${ukb21942_d}/pheno/isolation_run_binary.tsv.gz"
 covar_file="${ukb21942_d}/sqc/sqc.20220316.tsv.gz"
 
 # Output files (in analysis directory for easy access)
-pheno_eur_female="${SRCDIR}/isolation_run_control.EUR_Female.tsv.gz"
+pheno_eur_female="${SRCDIR}/isolation_run_binary.EUR_Female.tsv.gz"
 covar_eur_female="${SRCDIR}/sqc.EUR_Female.tsv.gz"
 
 echo "Input files:"
