@@ -2,6 +2,16 @@
 
 This directory contains the full workflow for extracting and formatting UK Biobank phenotypes used in the social isolation GWAS pipeline.
 
+## Background
+
+The phenotypes and binary coding scheme used in this analysis are based on:
+
+> Day, F.R., Ong, K.K. & Perry, J.R.B. **Elucidating the genetic basis of social interaction and isolation.** *Nature Communications* 9, 2457 (2018). https://doi.org/10.1038/s41467-018-04930-1
+
+Day et al. defined three social isolation traits -- Loneliness, Ability to Confide, and Frequency of Social Contact (FreqSoc) -- from UK Biobank touchscreen questionnaire items and applied binary case/control coding for GWAS. We adopt their phenotype definitions and binary coding directly.
+
+In addition to the binary analysis, we introduce a **continuous coding** of the same traits to capture finer-grained variation in social isolation. The continuous coding approach was conceived independently for this study and is not part of the Day et al. methodology.
+
 ## Phenotypes
 
 Four raw phenotypes are extracted from the UKBB basket file. All use **Instance 0** (initial assessment visit).
@@ -52,9 +62,9 @@ This calls `extract_phenotype.sh` for each field, which:
 
 Output files: `phenotype_2020.tsv`, `phenotype_2110.tsv`, `phenotype_1031.tsv`, `phenotype_709.tsv`
 
-### Step 2: Format Binary Phenotype File
+### Step 2: Format Binary Phenotype File (Day et al. coding)
 
-Run `Binary_Pheno_Formatting.ipynb` to produce PLINK case/control coding (1 = control, 2 = case). All traits are oriented so that **higher values indicate greater social isolation**:
+Run `Binary_Pheno_Formatting.ipynb` to produce PLINK case/control coding (1 = control, 2 = case), following the definitions in Day et al. (2018). All traits are oriented so that **higher values indicate greater social isolation**:
 
 - **Loneliness**: 0 (No) -> 1 (control), 1 (Yes) -> 2 (case)
 - **AbilityToConfide**: 0 (never/almost never) -> 2 (case, isolated); any other response -> 1 (control)
@@ -62,9 +72,9 @@ Run `Binary_Pheno_Formatting.ipynb` to produce PLINK case/control coding (1 = co
 
 Output: `isolation_run_binary.tsv.gz`
 
-### Step 3: Format Continuous Phenotype File
+### Step 3: Format Continuous Phenotype File (novel coding)
 
-Run `Continuous_Pheno_Formatting.ipynb` to produce continuous-valued coding. All traits are oriented so that **higher values indicate greater social isolation**:
+Run `Continuous_Pheno_Formatting.ipynb` to produce continuous-valued coding. This coding was developed for this study to complement the binary analysis. All traits are oriented so that **higher values indicate greater social isolation**:
 
 - **Loneliness**: Raw 0/1 value
 - **AbilityToConfide**: 5 - raw value (reverses the UKBB scale)
@@ -106,3 +116,7 @@ These files are consumed by the BOLT-LMM GWAS scripts in `../2_GWAS/`.
 | Basket file (decompressed) | `/home/mabdel03/data/files/Isolation_Genetics/GWAS/Basket_File/ukb675079.tab` |
 | Extracted phenotype TSVs | `/home/mabdel03/data/files/Isolation_Genetics/GWAS/Basket_File/extracted_phenotypes/` |
 | Formatted output files | `/home/mabdel03/data/files/Isolation_Genetics/GWAS/Scripts/ukb21942/pheno/` |
+
+## References
+
+- Day, F.R., Ong, K.K. & Perry, J.R.B. Elucidating the genetic basis of social interaction and isolation. *Nat Commun* 9, 2457 (2018). https://doi.org/10.1038/s41467-018-04930-1
