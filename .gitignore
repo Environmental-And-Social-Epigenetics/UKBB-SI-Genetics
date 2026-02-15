@@ -1,0 +1,22 @@
+# Large GWAS and MTAG outputs
+*.tsv.gz
+*.stats.gz
+*.log.gz
+*.sumstats.txt
+*_omega_hat.txt
+*_sigma_hat.txt
+*.png
+
+# MTAG result directories
+**/results/**
+**/sumstats/**
+
+# Notebook and Python artifacts
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# R artifacts
+.Rhistory
+.RData
+.Rproj.user/

@@ -1,0 +1,7 @@
+TwoSampleMR
+MendelianRandomization
+MRPRESSO
+data.table
+dplyr
+readr
+ggplot2
