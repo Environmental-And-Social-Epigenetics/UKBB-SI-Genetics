@@ -4,8 +4,8 @@
 #SBATCH --mem=16G
 #SBATCH -n 1
 #SBATCH --time=2:00:00
-#SBATCH --output=0a_filter.out
-#SBATCH --error=0a_filter.err
+#SBATCH --output=2_GWAS/logs/0a_filter.out
+#SBATCH --error=2_GWAS/logs/0a_filter.err
 #SBATCH --mail-user=mabdel03@mit.edu
 #SBATCH --mail-type=BEGIN,END,FAIL
 

@@ -4,8 +4,8 @@
 #SBATCH --mem=100G
 #SBATCH -n 32
 #SBATCH --time=47:00:00
-#SBATCH --output=1_%a.out
-#SBATCH --error=1_%a.err
+#SBATCH --output=2_GWAS/logs/1_%a.out
+#SBATCH --error=2_GWAS/logs/1_%a.err
 #SBATCH --array=1-9
 #SBATCH --mail-user=mabdel03@mit.edu
 #SBATCH --mail-type=BEGIN,END,FAIL,ARRAY_TASKS

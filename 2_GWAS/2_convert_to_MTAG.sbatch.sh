@@ -4,8 +4,8 @@
 #SBATCH --mem=32G
 #SBATCH -n 1
 #SBATCH --time=1:00:00
-#SBATCH --output=2_mtag_convert.out
-#SBATCH --error=2_mtag_convert.err
+#SBATCH --output=2_GWAS/logs/2_mtag_convert.out
+#SBATCH --error=2_GWAS/logs/2_mtag_convert.err
 #SBATCH --mail-user=mabdel03@mit.edu
 #SBATCH --mail-type=BEGIN,END,FAIL
 

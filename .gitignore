@@ -11,6 +11,10 @@
 **/results/**
 **/sumstats/**
 
+# SLURM logs
+**/logs/*.out
+**/logs/*.err
+
 # Notebook and Python artifacts
 __pycache__/
 *.pyc
