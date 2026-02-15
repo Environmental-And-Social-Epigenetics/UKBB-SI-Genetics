@@ -24,7 +24,8 @@ module load miniconda3/v4
 source /home/software/conda/miniconda3/bin/condainit
 conda activate /home/mabdel03/data/conda_envs/Python_Analysis
 
-# Navigate to analysis directory
+# Script directory (git repo) and data directory (working area)
+SCRIPTDIR="/home/mabdel03/data/files/Isolation_Genetics/GWAS/Scripts/UKBB-SI-Genetics/2_GWAS"
 SRCDIR="/home/mabdel03/data/files/Isolation_Genetics/GWAS/Scripts/ukb21942/BOLT-LMM_SI-Loneliness"
 cd ${SRCDIR}
 
@@ -38,7 +39,7 @@ echo "Filtering BINARY phenotype files"
 echo "========================================"
 echo ""
 
-python3 filter_populations.py --pheno-prefix isolation_run_binary
+python3 ${SCRIPTDIR}/filter_populations.py --pheno-prefix isolation_run_binary
 
 binary_exit=$?
 
@@ -55,7 +56,7 @@ echo "Filtering CONTINUOUS phenotype files"
 echo "========================================"
 echo ""
 
-python3 filter_populations.py --pheno-prefix isolation_run_continuous
+python3 ${SCRIPTDIR}/filter_populations.py --pheno-prefix isolation_run_continuous
 
 continuous_exit=$?
 

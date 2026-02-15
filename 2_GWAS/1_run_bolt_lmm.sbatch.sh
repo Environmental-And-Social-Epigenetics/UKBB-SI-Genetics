@@ -29,7 +29,8 @@ module load miniconda3/v4
 source /home/software/conda/miniconda3/bin/condainit
 conda activate /home/mabdel03/data/conda_envs/bolt_lmm
 
-# Navigate to analysis directory
+# Script directory (git repo) and data directory (working area)
+SCRIPTDIR="/home/mabdel03/data/files/Isolation_Genetics/GWAS/Scripts/UKBB-SI-Genetics/2_GWAS"
 SRCDIR="/home/mabdel03/data/files/Isolation_Genetics/GWAS/Scripts/ukb21942/BOLT-LMM_SI-Loneliness"
 cd ${SRCDIR}
 
@@ -57,7 +58,7 @@ echo "  Covariate set: ${covar_str}"
 echo ""
 
 # Run BOLT-LMM using the simplified workflow script
-bash ${SRCDIR}/run_single_phenotype.sh ${phenotype} ${covar_str} ${keep_set}
+bash ${SCRIPTDIR}/run_single_phenotype.sh ${phenotype} ${covar_str} ${keep_set}
 
 # Check if successful
 exit_code=$?

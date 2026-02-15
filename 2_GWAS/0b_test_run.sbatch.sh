@@ -26,7 +26,8 @@ module load miniconda3/v4
 source /home/software/conda/miniconda3/bin/condainit
 conda activate /home/mabdel03/data/conda_envs/bolt_lmm
 
-# Navigate to analysis directory
+# Script directory (git repo) and data directory (working area)
+SCRIPTDIR="/home/mabdel03/data/files/Isolation_Genetics/GWAS/Scripts/UKBB-SI-Genetics/2_GWAS"
 SRCDIR="/home/mabdel03/data/files/Isolation_Genetics/GWAS/Scripts/ukb21942/BOLT-LMM_SI-Loneliness"
 cd ${SRCDIR}
 
@@ -43,7 +44,7 @@ echo "✓ Ready for clean test run"
 echo ""
 
 # Run test
-bash run_single_phenotype.sh Loneliness Day_NoPCs EUR_MM
+bash ${SCRIPTDIR}/run_single_phenotype.sh Loneliness Day_NoPCs EUR_MM
 
 test_exit=$?
 
