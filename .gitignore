@@ -7,8 +7,13 @@
 *_sigma_hat.txt
 *.png
 
+# GWAS result directories (BOLT-LMM output)
+2_GWAS/results/
+2_GWAS/results_continuous/
+
 # MTAG result directories
-**/results/**
+2_GWAS/mtag_results/
+2_GWAS/mtag_results_continuous/
 **/sumstats/**
 
 # SLURM logs

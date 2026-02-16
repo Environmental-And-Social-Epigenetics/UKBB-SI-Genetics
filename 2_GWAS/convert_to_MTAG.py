@@ -113,6 +113,7 @@ def convert_bolt_to_mtag(bolt_file, rsid_lookup, trait_name, sample_size, output
 
 def main():
     # Paths
+    scriptdir = os.path.dirname(os.path.abspath(__file__))
     srcdir = '/home/mabdel03/data/files/Isolation_Genetics/GWAS/Scripts/ukb21942/BOLT-LMM_SI-Loneliness'
     ukb21942_d = '/home/mabdel03/data/files/Isolation_Genetics/GWAS/Scripts/ukb21942'
     
@@ -164,7 +165,7 @@ def main():
             print(f"  {pheno}: {n:,} samples")
         
         # Check if results directory exists
-        results_dir = f'{srcdir}/results/{covar_set}/{population}'
+        results_dir = f'{scriptdir}/results/{covar_set}/{population}'
         if not os.path.exists(results_dir):
             print(f"⚠️  Results directory not found: {results_dir}")
             print(f"   Skipping {population}")
@@ -172,7 +173,7 @@ def main():
             continue
         
         # Create output directory for this population
-        output_dir = f'{srcdir}/mtag_results/{population}'
+        output_dir = f'{scriptdir}/mtag_results/{population}'
         os.makedirs(output_dir, exist_ok=True)
         print(f"\nOutput directory: {output_dir}")
         
@@ -210,13 +211,13 @@ def main():
     print("Conversion Complete!")
     print("=" * 70)
     print()
-    print(f"Output directory structure: {srcdir}/mtag_results/")
+    print(f"Output directory structure: {scriptdir}/mtag_results/")
     print()
     
     # List all created files
     print("Created files:")
     for pop in populations:
-        pop_dir = f'{srcdir}/mtag_results/{pop}'
+        pop_dir = f'{scriptdir}/mtag_results/{pop}'
         if os.path.exists(pop_dir):
             print(f"\n  {pop}/")
             for f in sorted(os.listdir(pop_dir)):

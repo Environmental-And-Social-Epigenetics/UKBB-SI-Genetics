@@ -18,7 +18,7 @@ pheno_prefix=${4:-isolation_run_binary}
 results_subdir=${5:-results}
 
 # Directories
-REPODIR="/home/mabdel03/data/files/Isolation_Genetics/GWAS/Scripts/ukb21942"
+SCRIPTDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SRCDIR="/home/mabdel03/data/files/Isolation_Genetics/GWAS/Scripts/ukb21942/BOLT-LMM_SI-Loneliness"
 ukb21942_d='/home/mabdel03/data/files/Isolation_Genetics/GWAS/Scripts/ukb21942'
 
@@ -28,8 +28,8 @@ echo "Covariate model: ${covar_str}"
 echo "Population: ${keep_set}"
 echo "========================================"
 
-# Output directory
-out_dir="${SRCDIR}/${results_subdir}/${covar_str}/${keep_set}"
+# Output directory (write to script repo, not data directory)
+out_dir="${SCRIPTDIR}/${results_subdir}/${covar_str}/${keep_set}"
 mkdir -p ${out_dir}
 
 out_file="${out_dir}/bolt_${phenotype}.${covar_str}"

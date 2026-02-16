@@ -12,6 +12,7 @@ from convert_to_MTAG import load_rsid_mapping, convert_bolt_to_mtag
 
 def main():
     # Paths
+    scriptdir = os.path.dirname(os.path.abspath(__file__))
     srcdir = "/home/mabdel03/data/files/Isolation_Genetics/GWAS/Scripts/ukb21942/BOLT-LMM_SI-Loneliness"
 
     # rsID mapping file
@@ -61,7 +62,7 @@ def main():
             print(f"  {pheno}: {n:,} samples")
 
         # Check if results directory exists
-        results_dir = f"{srcdir}/{results_subdir}/{covar_set}/{population}"
+        results_dir = f"{scriptdir}/{results_subdir}/{covar_set}/{population}"
         if not os.path.exists(results_dir):
             print(f"Results directory not found: {results_dir}")
             print(f"Skipping {population}")
@@ -69,7 +70,7 @@ def main():
             continue
 
         # Create output directory for this population
-        output_dir = f"{srcdir}/{output_root}/{population}"
+        output_dir = f"{scriptdir}/{output_root}/{population}"
         os.makedirs(output_dir, exist_ok=True)
         print(f"\nOutput directory: {output_dir}")
 
@@ -104,7 +105,7 @@ def main():
     print("=" * 70)
     print("Continuous conversion complete")
     print("=" * 70)
-    print(f"Output directory structure: {srcdir}/{output_root}/")
+    print(f"Output directory structure: {scriptdir}/{output_root}/")
     print()
 
 

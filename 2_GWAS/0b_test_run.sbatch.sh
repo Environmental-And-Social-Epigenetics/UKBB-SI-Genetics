@@ -38,8 +38,8 @@ echo ""
 
 # Clean up any previous test outputs
 echo "Removing any previous test outputs..."
-rm -f ${SRCDIR}/results/Day_NoPCs/EUR_MM/bolt_Loneliness.Day_NoPCs.stats*
-rm -f ${SRCDIR}/results/Day_NoPCs/EUR_MM/bolt_Loneliness.Day_NoPCs.log*
+rm -f ${SCRIPTDIR}/results/Day_NoPCs/EUR_MM/bolt_Loneliness.Day_NoPCs.stats*
+rm -f ${SCRIPTDIR}/results/Day_NoPCs/EUR_MM/bolt_Loneliness.Day_NoPCs.log*
 echo "✓ Ready for clean test run"
 echo ""
 
@@ -54,8 +54,8 @@ if [ ${test_exit} -eq 0 ]; then
     echo "🎉 TEST PASSED!"
     echo ""
     echo "Verification:"
-    ls -lh results/Day_NoPCs/EUR_MM/bolt_Loneliness.Day_NoPCs.stats.gz 2>/dev/null || echo "Stats file not found"
-    ls -lh results/Day_NoPCs/EUR_MM/bolt_Loneliness.Day_NoPCs.log.gz 2>/dev/null || echo "Log file not found"
+    ls -lh ${SCRIPTDIR}/results/Day_NoPCs/EUR_MM/bolt_Loneliness.Day_NoPCs.stats.gz 2>/dev/null || echo "Stats file not found"
+    ls -lh ${SCRIPTDIR}/results/Day_NoPCs/EUR_MM/bolt_Loneliness.Day_NoPCs.log.gz 2>/dev/null || echo "Log file not found"
     echo ""
     echo "Next steps:"
     echo "1. Review the output files and log"

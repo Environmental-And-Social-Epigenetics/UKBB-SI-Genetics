@@ -51,15 +51,15 @@ echo "========================================"
 if [ ${convert_exit} -eq 0 ]; then
     echo "MTAG CONTINUOUS CONVERSION COMPLETED SUCCESSFULLY"
     echo ""
-    echo "Output directory: ${SRCDIR}/mtag_results_continuous/"
+    echo "Output directory: ${SCRIPTDIR}/mtag_results_continuous/"
     echo ""
     echo "Created files by population:"
-    if [ -d "${SRCDIR}/mtag_results_continuous" ]; then
+    if [ -d "${SCRIPTDIR}/mtag_results_continuous" ]; then
         for pop in EUR_MM EUR_Male EUR_Female; do
-            if [ -d "${SRCDIR}/mtag_results_continuous/${pop}" ]; then
+            if [ -d "${SCRIPTDIR}/mtag_results_continuous/${pop}" ]; then
                 echo ""
                 echo "  ${pop}:"
-                ls -lh "${SRCDIR}/mtag_results_continuous/${pop}/"*.mtag.sumstats.txt 2>/dev/null | \
+                ls -lh "${SCRIPTDIR}/mtag_results_continuous/${pop}/"*.mtag.sumstats.txt 2>/dev/null | \
                     awk '{printf "    %s (%s)\n", $9, $5}'
             fi
         done
