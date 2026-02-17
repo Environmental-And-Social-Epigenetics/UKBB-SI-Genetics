@@ -6,7 +6,7 @@ conda activate /home/mabdel03/data/conda_envs/mtag
 
 MTAG_DIR="/home/mabdel03/data/software/mtag"
 SCRIPTDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-REPODIR="$(cd "${SCRIPTDIR}/../../.." && pwd)"
+REPODIR="$(cd "${SCRIPTDIR}/../../../.." && pwd)"
 SUMSTATS_DIR="${REPODIR}/2_GWAS/mtag_results/EUR_Male"
 RESULTS_DIR="${SCRIPTDIR}/../results"
 mkdir -p ${RESULTS_DIR}
