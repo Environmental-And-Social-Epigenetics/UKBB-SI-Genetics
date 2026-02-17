@@ -1,13 +1,21 @@
 #!/usr/bin/env bash
 
-source /Users/mahmoudabdelmoneum/opt/anaconda3/etc/profile.d/conda.sh
-conda activate /Users/mahmoudabdelmoneum/Desktop/MIT/Software/Research_Software/conda_envs/MTAG
+module load miniconda3/v4
+source /home/software/conda/miniconda3/bin/condainit
+conda activate /home/mabdel03/data/conda_envs/mtag
+
+MTAG_DIR="/home/mabdel03/data/software/mtag"
+SCRIPTDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPODIR="$(cd "${SCRIPTDIR}/../../.." && pwd)"
+SUMSTATS_DIR="${REPODIR}/2_GWAS/mtag_results/EUR_Female"
+RESULTS_DIR="${SCRIPTDIR}/../results"
+mkdir -p ${RESULTS_DIR}
 
 # SI EUR_Female_MM - Social Isolation traits (Female)
-python /Users/mahmoudabdelmoneum/Desktop/MIT/Software/Research_Software/mtag/mtag.py \
-        --sumstats ../sumstats/AbilityToConfide.Day_NoPCs.mtag.sumstats.txt,../sumstats/FreqSoc.Day_NoPCs.mtag.sumstats.txt,../sumstats/Loneliness.Day_NoPCs.mtag.sumstats.txt \
-        --out ../results/SI_EUR_Female_MM_Output \
-        --ld_ref_panel /Users/mahmoudabdelmoneum/Desktop/MIT/Software/Research_Software/mtag/ld_ref_panel/eur_w_ld_chr/ \
+python ${MTAG_DIR}/mtag.py \
+        --sumstats ${SUMSTATS_DIR}/AbilityToConfide.Day_NoPCs.mtag.sumstats.txt,${SUMSTATS_DIR}/FreqSoc.Day_NoPCs.mtag.sumstats.txt,${SUMSTATS_DIR}/Loneliness.Day_NoPCs.mtag.sumstats.txt \
+        --out ${RESULTS_DIR}/SI_EUR_Female_MM_Output \
+        --ld_ref_panel ${MTAG_DIR}/ld_ref_panel/eur_w_ld_chr/ \
         --snp_name snpid \
         --a1_name a1 \
         --a2_name a2 \
@@ -19,6 +27,4 @@ python /Users/mahmoudabdelmoneum/Desktop/MIT/Software/Research_Software/mtag/mta
         --eaf_name freq \
         --n_min 0.0 \
         --force \
-      --stream_stdout
-
-
+        --stream_stdout

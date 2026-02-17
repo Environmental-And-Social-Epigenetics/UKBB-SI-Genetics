@@ -1,13 +1,20 @@
 #!/usr/bin/env bash
 
-source /Users/mahmoudabdelmoneum/opt/anaconda3/etc/profile.d/conda.sh
-conda activate /Users/mahmoudabdelmoneum/Desktop/MIT/Software/Research_Software/conda_envs/MTAG
+module load miniconda3/v4
+source /home/software/conda/miniconda3/bin/condainit
+conda activate /home/mabdel03/data/conda_envs/mtag
+
+MTAG_DIR="/home/mabdel03/data/software/mtag"
+SCRIPTDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SUMSTATS_DIR="${SCRIPTDIR}/../sumstats"
+RESULTS_DIR="${SCRIPTDIR}/../results"
+mkdir -p ${RESULTS_DIR}
 
 # MRI EUR_Male_MM - MRI traits (Male)
-python /Users/mahmoudabdelmoneum/Desktop/MIT/Software/Research_Software/mtag/mtag.py \
-        --sumstats ../sumstats/FA.Day_NoPCs.mtag.sumstats.txt,../sumstats/MD.Day_NoPCs.mtag.sumstats.txt,../sumstats/MO.Day_NoPCs.mtag.sumstats.txt,../sumstats/OD.Day_NoPCs.mtag.sumstats.txt \
-        --out ../results/MRI_EUR_Male_MM_Output \
-        --ld_ref_panel /Users/mahmoudabdelmoneum/Desktop/MIT/Software/Research_Software/mtag/ld_ref_panel/eur_w_ld_chr/ \
+python ${MTAG_DIR}/mtag.py \
+        --sumstats ${SUMSTATS_DIR}/FA.Day_NoPCs.mtag.sumstats.txt,${SUMSTATS_DIR}/MD.Day_NoPCs.mtag.sumstats.txt,${SUMSTATS_DIR}/MO.Day_NoPCs.mtag.sumstats.txt,${SUMSTATS_DIR}/OD.Day_NoPCs.mtag.sumstats.txt \
+        --out ${RESULTS_DIR}/MRI_EUR_Male_MM_Output \
+        --ld_ref_panel ${MTAG_DIR}/ld_ref_panel/eur_w_ld_chr/ \
         --snp_name snpid \
         --a1_name a1 \
         --a2_name a2 \
@@ -19,6 +26,4 @@ python /Users/mahmoudabdelmoneum/Desktop/MIT/Software/Research_Software/mtag/mta
         --eaf_name freq \
         --n_min 0.0 \
         --force \
-      --stream_stdout
-
-
+        --stream_stdout
