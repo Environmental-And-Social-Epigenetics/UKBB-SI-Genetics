@@ -1,4 +1,6 @@
+# ===========================================================
 # Large GWAS and MTAG outputs
+# ===========================================================
 *.tsv.gz
 *.stats.gz
 *.log.gz
@@ -16,11 +18,64 @@
 2_GWAS/mtag_results_continuous/
 **/sumstats/**
 
+# MTAG trait-level results (large summary-stat text files)
+3_MTAG/**/results/
+
 # SLURM logs
 **/logs/*.out
 **/logs/*.err
 
+# ===========================================================
+# Functional Genomics -- heavy / downloadable reference data
+# ===========================================================
+
+# Full reference panels (PLINK bed/bim/fam, tarballs, merged files)
+5_Functional_Genomics/reference_data/1000G_EUR/
+5_Functional_Genomics/reference_data/ldsc/
+5_Functional_Genomics/reference_data/magma/
+5_Functional_Genomics/reference_data/plink/
+5_Functional_Genomics/reference_data/predixcan/
+
+# Munged intermediate outputs (large compressed tables)
+5_Functional_Genomics/0_munge/output/ldsc_input/
+5_Functional_Genomics/0_munge/output/ldsc_munged/
+5_Functional_Genomics/0_munge/output/magma/
+5_Functional_Genomics/0_munge/output/spredixcan/
+
+# MAGMA gene annotation and raw files (large)
+**/*.genes.annot
+**/*.genes.raw
+
+# Fine-mapping LD matrices (can be huge)
+5_Functional_Genomics/4_Fine_Mapping/output/02_ld_matrices/
+
+# Fine-mapping significant SNP dumps (can be large)
+5_Functional_Genomics/4_Fine_Mapping/output/01_defined_loci/*.sig_snps.tsv
+
+# SNP-level sex interaction files (large compressed tables)
+5_Functional_Genomics/7_Sex_Differences/output/03_snp_sex_interaction/*.sex_interaction.tsv.gz
+
+# Sex-differential gene tables (large per-trait gene-level outputs)
+5_Functional_Genomics/7_Sex_Differences/output/06_sex_differential_genes/*__trait*__*.sex_differential_genes.tsv
+5_Functional_Genomics/7_Sex_Differences/output/06_sex_differential_genes/sex_differential_genes_all.tsv
+
+# General binary / archive patterns
+*.bed
+*.bim
+*.fam
+*.tgz
+*.tar.gz
+*.zip
+*.nosex
+
+# Embedded git repos (cloned tools)
+5_Functional_Genomics/reference_data/ldsc/ldsc/
+5_Functional_Genomics/reference_data/ldsc/ldsc_py2_backup/
+5_Functional_Genomics/reference_data/magma/temp_magma/
+
+# ===========================================================
 # Notebook and Python artifacts
+# ===========================================================
 __pycache__/
 *.pyc
 .ipynb_checkpoints/

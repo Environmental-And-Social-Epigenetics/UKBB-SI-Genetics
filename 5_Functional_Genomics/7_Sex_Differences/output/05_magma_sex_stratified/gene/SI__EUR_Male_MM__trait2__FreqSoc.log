@@ -1,0 +1,32 @@
+Welcome to MAGMA v1.10 (custom)
+Using flags:
+	--bfile /Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/reference_data/1000G_EUR/g1000_eur
+	--pval /Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/0_munge/output/magma/SI__EUR_Male_MM__trait2__FreqSoc.genes.raw use=SNP,P ncol=N
+	--gene-annot /Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/7_Sex_Differences/output/05_magma_sex_stratified/annotation/SI__EUR_Male_MM__trait2__FreqSoc.genes.annot
+	--out /Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/7_Sex_Differences/output/05_magma_sex_stratified/gene/SI__EUR_Male_MM__trait2__FreqSoc
+
+Start time is 18:11:02, Tuesday 17 Feb 2026
+
+Loading PLINK-format data...
+Reading file /Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/reference_data/1000G_EUR/g1000_eur.fam... 489 individuals read
+Reading file /Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/reference_data/1000G_EUR/g1000_eur.bim... 9997231 SNPs read
+Preparing file /Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/reference_data/1000G_EUR/g1000_eur.bed... 
+
+Reading SNP p-values from file /Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/0_munge/output/magma/SI__EUR_Male_MM__trait2__FreqSoc.genes.raw... 
+	detected 5 variables in file
+	using variable: SNP (SNP id)
+	using variable: P (p-value)
+	using variable: N (sample size; discarding SNPs with N < 50)
+	read 1205326 lines from file, containing valid SNP p-values for 1128573 SNPs in data (93.63% of lines, 11.29% of SNPs in data)
+Loading gene annotation from file /Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/7_Sex_Differences/output/05_magma_sex_stratified/annotation/SI__EUR_Male_MM__trait2__FreqSoc.genes.annot... 
+	25341 gene definitions read from file
+	found 25141 genes containing valid SNPs in genotype data
+
+
+Starting gene analysis... 
+	using model: SNPwise-mean
+	writing gene analysis results to file /Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/7_Sex_Differences/output/05_magma_sex_stratified/gene/SI__EUR_Male_MM__trait2__FreqSoc.genes.out
+	writing intermediate output to file /Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/7_Sex_Differences/output/05_magma_sex_stratified/gene/SI__EUR_Male_MM__trait2__FreqSoc.genes.raw
+
+
+End time is 18:19:04, Tuesday 17 Feb 2026 (elapsed: 00:08:02)

@@ -1,0 +1,7 @@
+coding	coding_raw	trait_index	trait	n_genes_tested	n_male_sig	n_female_sig	n_sex_differential_pdiff	n_sex_differential_qdiff	n_shared_significant	n_female_specific	n_male_specific	n_female_enriched	n_male_enriched	n_sex_differential	n_not_significant
+binary	SI	1	AbilityToConfide	25141	0	3	1	0	0	0	0	3	0	1	25137
+binary	SI	2	FreqSoc	25141	0	10	2	2	0	0	0	10	0	2	25129
+binary	SI	3	Loneliness	25141	0	9	3	2	0	0	0	9	0	3	25129
+continuous	SI_continuous	1	AbilityToConfide	25141	1	11	1	0	0	7	0	4	1	0	25129
+continuous	SI_continuous	2	FreqSoc	25141	2	2	1	1	1	0	0	1	1	1	25137
+continuous	SI_continuous	3	Loneliness	25141	0	13	2	2	0	1	0	12	0	2	25126

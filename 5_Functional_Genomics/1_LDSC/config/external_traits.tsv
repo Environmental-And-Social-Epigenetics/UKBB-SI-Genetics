@@ -1,0 +1,21 @@
+trait_name	sumstats_path	sample_size	source	notes
+MDD_PGC3		NA	PGC	Populate sumstats_path with munged .sumstats.gz
+Anxiety		NA	PGC_or_UKB	Populate sumstats_path with munged .sumstats.gz
+Schizophrenia_PGC3		NA	PGC	Populate sumstats_path with munged .sumstats.gz
+BipolarDisorder_PGC		NA	PGC	Populate sumstats_path with munged .sumstats.gz
+Neuroticism_UKB		NA	UKB	Populate sumstats_path with munged .sumstats.gz
+SubjectiveWellBeing		NA	SSGAC	Populate sumstats_path with munged .sumstats.gz
+RiskTolerance		NA	SSGAC	Populate sumstats_path with munged .sumstats.gz
+EducationalAttainment		NA	SSGAC	Populate sumstats_path with munged .sumstats.gz
+Intelligence		NA	CTG	Populate sumstats_path with munged .sumstats.gz
+BMI_GIANT		NA	GIANT	Populate sumstats_path with munged .sumstats.gz
+SmokingInitiation		NA	GSCAN	Populate sumstats_path with munged .sumstats.gz
+AlcoholUse		NA	GSCAN	Populate sumstats_path with munged .sumstats.gz
+Insomnia		NA	UKB	Populate sumstats_path with munged .sumstats.gz
+SleepDuration		NA	UKB	Populate sumstats_path with munged .sumstats.gz
+DepressiveSymptoms		NA	PGC_or_UKB	Populate sumstats_path with munged .sumstats.gz
+Loneliness_External		NA	Consortium	Populate sumstats_path with munged .sumstats.gz
+HippocampalVolume		NA	ENIGMA	Populate sumstats_path with munged .sumstats.gz
+IntracranialVolume		NA	ENIGMA	Populate sumstats_path with munged .sumstats.gz
+WhiteMatterFA		NA	ENIGMA_or_UKB	Populate sumstats_path with munged .sumstats.gz
+AlzheimersDisease		NA	IGAP	Populate sumstats_path with munged .sumstats.gz

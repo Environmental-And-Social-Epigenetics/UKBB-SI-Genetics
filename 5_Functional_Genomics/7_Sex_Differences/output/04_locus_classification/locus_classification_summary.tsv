@@ -1,0 +1,7 @@
+coding	coding_raw	trait_index	trait	n_loci_total	n_shared	n_female_amplified	n_male_amplified	n_female_specific	n_male_specific	n_discordant	n_suggestive_other
+binary	SI	1	AbilityToConfide	8	0	0	0	0	0	1	7
+binary	SI	2	FreqSoc	9	0	0	1	0	0	0	8
+binary	SI	3	Loneliness	12	0	0	1	0	0	0	11
+continuous	SI_continuous	1	AbilityToConfide	19	0	0	0	0	0	0	19
+continuous	SI_continuous	2	FreqSoc	44	1	0	1	0	0	17	25
+continuous	SI_continuous	3	Loneliness	12	0	0	0	0	0	0	12

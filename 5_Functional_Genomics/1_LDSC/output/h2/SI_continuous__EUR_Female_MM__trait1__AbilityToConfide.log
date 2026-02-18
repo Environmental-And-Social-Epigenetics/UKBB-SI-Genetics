@@ -1,0 +1,32 @@
+*********************************************************************
+* LD Score Regression (LDSC)
+* Version 3.0.1
+* (C) 2014-2019 Brendan Bulik-Sullivan and Hilary Finucane
+* Broad Institute of MIT and Harvard / MIT Department of Mathematics
+* GNU General Public License v3
+*********************************************************************
+Call: 
+./ldsc.py \
+--out /Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/1_LDSC/output/h2/SI_continuous__EUR_Female_MM__trait1__AbilityToConfide \
+--h2 /Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/0_munge/output/ldsc_munged/SI_continuous__EUR_Female_MM__trait1__AbilityToConfide.sumstats.gz \
+--ref-ld-chr /Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/reference_data/ldsc/LDscore/LDscore. \
+--w-ld-chr /Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/reference_data/ldsc/1000G_Phase3_weights_hm3_no_MHC/weights.hm3_noMHC. 
+
+Beginning analysis at Tue Feb 17 15:15:07 2026
+Reading summary statistics from /Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/0_munge/output/ldsc_munged/SI_continuous__EUR_Female_MM__trait1__AbilityToConfide.sumstats.gz ...
+Read summary statistics for 746386 SNPs.
+Reading reference panel LD Score from /Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/reference_data/ldsc/LDscore/LDscore.[1-22] ... (ldscore_fromlist)
+Read reference panel LD Scores for 1190321 SNPs.
+Removing partitioned LD Scores with zero variance.
+Reading regression weight LD Score from /Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/reference_data/ldsc/1000G_Phase3_weights_hm3_no_MHC/weights.hm3_noMHC.[1-22] ... (ldscore_fromlist)
+Read regression weight LD Scores for 1187349 SNPs.
+After merging with reference panel LD, 739502 SNPs remain.
+After merging with regression SNP LD, 737061 SNPs remain.
+Using two-step estimator with cutoff at 30.
+Total Observed scale h2: 0.0449 (0.0033)
+Lambda GC: 1.2005
+Mean Chi^2: 1.2217
+Intercept: 1.0146 (0.0077)
+Ratio: 0.0657 (0.0347)
+Analysis finished at Tue Feb 17 15:15:12 2026
+Total time elapsed: 5.09s

@@ -11,7 +11,8 @@ This directory is a starter scaffold for TwoSampleMR analyses that use GWAS/MTAG
 
 ## Files
 
-- `scripts/run_twosample_mr.R`: template end-to-end TwoSampleMR pipeline
+- `scripts/run_twosample_mr.R`: template end-to-end TwoSampleMR pipeline for binary-coded traits
+- `scripts/run_twosample_mr_continuous.R`: template pipeline for continuous-coded traits
 - `requirements.txt`: required R packages
 
 ## Input expectations
@@ -26,3 +27,15 @@ Template code assumes tabular summary-stat files with at least:
 - sample size (`n`)
 
 Update the paths and column mappings in `scripts/run_twosample_mr.R` before running.
+
+## Related modules
+
+This module runs in parallel with `5_Functional_Genomics/`, which provides complementary post-GWAS interpretation:
+
+- LDSC heritability and genetic correlations
+- MAGMA gene-based and pathway analyses
+- S-PrediXcan transcriptome-wide association
+- SuSiE fine-mapping and GWAS-eQTL colocalization
+- Integrated gene prioritization
+
+See `../5_Functional_Genomics/README.md` for details.

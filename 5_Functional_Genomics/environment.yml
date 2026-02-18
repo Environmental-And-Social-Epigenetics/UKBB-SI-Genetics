@@ -1,0 +1,30 @@
+name: functional_genomics
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python>=3.10
+  - pip
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - seaborn
+  - scikit-learn
+  - pyarrow
+  - jupyter
+  - plink
+  - r-base>=4.2
+  - r-data.table
+  - r-dplyr
+  - r-readr
+  - r-ggplot2
+  - r-coloc
+  - r-susier
+  - r-optparse
+  - r-stringr
+  - r-tidyr
+  - r-purrr
+  - wget
+  - curl
+  - unzip

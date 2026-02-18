@@ -1,0 +1,70 @@
+Welcome to MAGMA v1.10 (custom)
+Using flags:
+	--annotate window=10,10
+	--snp-loc /Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/0_munge/output/magma/SI__EUR_MM__trait3__Loneliness.genes.raw
+	--gene-loc /Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/reference_data/magma/NCBI37.3.gene.loc
+	--out /Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/2_MAGMA/output/01_annotation/SI__EUR_MM__trait3__Loneliness
+
+Start time is 16:58:17, Tuesday 17 Feb 2026
+
+Starting annotation...
+Reading gene locations from file /Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/reference_data/magma/NCBI37.3.gene.loc... 
+	adding window: 10000bp
+	27047 gene locations read from file
+	chromosome  1: 2728 genes
+	chromosome  2: 1740 genes
+	chromosome  3: 1510 genes
+	chromosome  4: 1042 genes
+	chromosome  5: 1226 genes
+	chromosome  6: 1388 genes
+	chromosome  7: 1266 genes
+	chromosome  8: 961 genes
+	chromosome  9: 1033 genes
+	chromosome 10: 1067 genes
+	chromosome 11: 1604 genes
+	chromosome 12: 1336 genes
+	chromosome 13: 615 genes
+	chromosome 14: 899 genes
+	chromosome 15: 956 genes
+	chromosome 16: 1092 genes
+	chromosome 17: 1509 genes
+	chromosome 18: 409 genes
+	chromosome 19: 1722 genes
+	chromosome 20: 754 genes
+	chromosome 21: 355 genes
+	chromosome 22: 623 genes
+	chromosome  X: 1097 genes
+	chromosome  Y: 115 genes
+Reading SNP locations from file /Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/0_munge/output/magma/SI__EUR_MM__trait3__Loneliness.genes.raw... 
+	WARNING: on line 1, chromosome code 'CHR' not recognised; skipping SNP (ID = SNP)
+	1206639 SNP locations read from file
+	of those, 766312 (63.51%) mapped to at least one gene
+Writing annotation to file /Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/2_MAGMA/output/01_annotation/SI__EUR_MM__trait3__Loneliness.genes.annot
+	for chromosome  1, 75 genes are empty (out of 2728)
+	for chromosome  2, 24 genes are empty (out of 1740)
+	for chromosome  3, 7 genes are empty (out of 1510)
+	for chromosome  4, 16 genes are empty (out of 1042)
+	for chromosome  5, 20 genes are empty (out of 1226)
+	for chromosome  6, 2 genes are empty (out of 1388)
+	for chromosome  7, 30 genes are empty (out of 1266)
+	for chromosome  8, 25 genes are empty (out of 961)
+	for chromosome  9, 40 genes are empty (out of 1033)
+	for chromosome 10, 21 genes are empty (out of 1067)
+	for chromosome 11, 9 genes are empty (out of 1604)
+	for chromosome 12, 4 genes are empty (out of 1336)
+	for chromosome 13, 1 gene is empty (out of 615)
+	for chromosome 14, 12 genes are empty (out of 899)
+	for chromosome 15, 72 genes are empty (out of 956)
+	for chromosome 16, 41 genes are empty (out of 1092)
+	for chromosome 17, 33 genes are empty (out of 1509)
+	for chromosome 18, 4 genes are empty (out of 409)
+	for chromosome 19, 16 genes are empty (out of 1722)
+	for chromosome 20, 1 gene is empty (out of 754)
+	for chromosome 21, 12 genes are empty (out of 355)
+	for chromosome 22, 24 genes are empty (out of 623)
+	for chromosome  X, 1097 genes are empty (out of 1097)
+	for chromosome  Y, 115 genes are empty (out of 115)
+	at least one SNP mapped to each of a total of 25346 genes (out of 27047)
+
+
+End time is 16:58:19, Tuesday 17 Feb 2026 (elapsed: 00:00:02)

@@ -1,0 +1,3 @@
+dataset_id	eqtl_file	gene	tissue	snp_col	chr_col	bp_col	beta_col	se_col	p_col	n_col	maf_col	gene_col	tissue_col
+GTEx_Brain_Cortex	/path/to/gtex_v8/Brain_Cortex.eqtl.tsv.gz	GENE_SYMBOL	Brain_Cortex	SNP	CHR	BP	beta	se	pval	n	maf	gene	tissue
+eQTLGen_Blood	/path/to/eqtlgen/Blood.eqtl.tsv.gz	GENE_SYMBOL	Whole_Blood	SNP	CHR	BP	beta	se	pval	n	maf	gene	tissue

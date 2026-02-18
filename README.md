@@ -1,6 +1,6 @@
 # UKBB-SI-Genetics
 
-Reproducible genetics workflow for social isolation and loneliness analyses in the UK Biobank, spanning phenotype construction, GWAS, multi-trait analysis (MTAG), and Mendelian Randomization (MR).
+Reproducible genetics workflow for social isolation and loneliness analyses in the UK Biobank, spanning phenotype construction, GWAS, multi-trait analysis (MTAG), functional genomics, and Mendelian Randomization (MR).
 
 ## Background
 
@@ -35,19 +35,22 @@ Each GWAS is run across three European-ancestry subsets:
 ## Pipeline Overview
 
 ```
-1_Phenotype_Creation          2_GWAS                          3_MTAG                  4_MR
-─────────────────────         ──────────────────────────       ─────────────────       ──────────────
-                              Filter populations
-UKBB basket file              (EUR_MM, EUR_Male, EUR_Female)
-       │                              │
-       ├── Binary coding ──────► BOLT-LMM binary GWAS         MTAG SI binary ───┐
-       │                              │                              │            │
-       │                         Convert to MTAG format ────►  Analysis/plots    │
-       │                                                                         ├──► TwoSampleMR
-       ├── Continuous coding ──► BOLT-LMM continuous GWAS      MTAG SI cont. ───┤
-                                      │                                          │
-                                 Convert to MTAG format ────►                    │
-                                                               MTAG MRI ────────┘
+1_Phenotype         2_GWAS                     3_MTAG               4_MR              5_Functional_Genomics
+────────────        ─────────────────          ─────────────        ──────────────     ─────────────────────
+                    Filter populations
+UKBB basket         (EUR_MM, EUR_Male,
+       │             EUR_Female)
+       │                    │
+       ├── Binary ────► BOLT-LMM binary        MTAG SI binary ───┐                  ┌── LDSC (h2, rg)
+       │                    │                        │             │                  ├── MAGMA (gene, pathway, tissue)
+       │               Convert to MTAG ────►   Analysis/plots     ├──► TwoSampleMR   ├── S-PrediXcan / S-MultiXcan
+       │                                                          │                  ├── Fine-mapping (SuSiE)
+       ├── Continuous ► BOLT-LMM cont.         MTAG SI cont. ────┤                  ├── Colocalization (coloc)
+                            │                                     │                  └── Visualization + gene table
+                       Convert to MTAG ────►                      │
+                                               MTAG MRI ─────────┘
+                                                     │
+                                                     └────────────────────────────────► 5_Functional_Genomics
 ```
 
 Each GWAS step runs **3 traits x 3 populations = 9 jobs** per coding scheme (18 total).
@@ -92,13 +95,28 @@ Template scripts for two-sample MR analyses testing causal relationships between
 - Methods: IVW, MR-Egger, weighted median, with heterogeneity and pleiotropy sensitivity checks
 - **`requirements.txt`** -- R package dependencies (TwoSampleMR, MendelianRandomization, MRPRESSO, etc.)
 
+### `5_Functional_Genomics/`
+
+Comprehensive post-GWAS functional interpretation pipeline operating entirely on summary statistics from `3_MTAG/`.
+
+- **`reference_data/`** -- Download script for LD scores, 1000G EUR, gene sets, GTEx models, eQTL data, and external GWAS sumstats
+- **`0_munge/`** -- Reformats MTAG outputs for each downstream tool (LDSC, MAGMA, S-PrediXcan)
+- **`1_LDSC/`** -- SNP heritability, genetic correlations (internal and external), partitioned h2 (baselineLD + cell-type)
+- **`2_MAGMA/`** -- Gene-based association, gene-set (GO, KEGG, MSigDB) enrichment, and tissue expression analysis
+- **`3_S-PrediXcan/`** -- Per-tissue and cross-tissue transcriptome-wide association, gene prioritization
+- **`4_Fine_Mapping/`** -- Locus definition, LD matrix computation, SuSiE credible sets
+- **`5_Colocalization/`** -- GWAS-eQTL colocalization with coloc, colocalized gene summary
+- **`6_Visualization/`** -- Integrated plots (rg heatmap, partitioned h2, tissue enrichment, Miami plot, regional loci) and gene prioritization table
+- **`environment.yml`** -- Conda environment covering all Python, R, and CLI dependencies
+
 ## Compute Environment
 
-All GWAS and MTAG jobs are designed for the MIT Luria SLURM cluster:
+GWAS and MTAG jobs are designed for the MIT Luria SLURM cluster. Post-GWAS functional genomics runs locally on a laptop/workstation.
 
 - BOLT-LMM runs use the `bolt_lmm` conda environment
 - Python conversion scripts use the `Python_Analysis` conda environment
 - Typical GWAS job: 100 GB RAM, 32 CPUs, 1--2 hours per phenotype-population combination
+- **Functional genomics** (`5_Functional_Genomics/`) uses the `functional_genomics` conda environment (see `5_Functional_Genomics/environment.yml`). All analyses run locally on summary statistics only.
 
 ## Data and Results Tracking
 
@@ -109,6 +127,8 @@ Large data files and generated outputs are excluded from git via `.gitignore`:
 - MTAG matrix outputs (`*_omega_hat.txt`, `*_sigma_hat.txt`)
 - Generated figures (`*.png`)
 - SLURM log files (`*.out`, `*.err`)
+- Functional genomics reference data (`5_Functional_Genomics/reference_data/`)
+- Munged summary statistics and analysis outputs under `5_Functional_Genomics/*/output/`
 
 This repository tracks reproducible code and workflow structure only.
 

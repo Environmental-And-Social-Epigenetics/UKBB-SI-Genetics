@@ -1,0 +1,65 @@
+*********************************************************************
+* LD Score Regression (LDSC)
+* Version 3.0.1
+* (C) 2014-2019 Brendan Bulik-Sullivan and Hilary Finucane
+* Broad Institute of MIT and Harvard / MIT Department of Mathematics
+* GNU General Public License v3
+*********************************************************************
+Call: 
+./ldsc.py \
+--out /Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/1_LDSC/output/rg_internal/SI__EUR_Female_MM__ATC_vs_FreqSoc \
+--rg /Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/0_munge/output/ldsc_munged/SI__EUR_Female_MM__trait1__AbilityToConfide.sumstats.gz,/Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/0_munge/output/ldsc_munged/SI__EUR_Female_MM__trait2__FreqSoc.sumstats.gz \
+--ref-ld-chr /Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/reference_data/ldsc/LDscore/LDscore. \
+--w-ld-chr /Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/reference_data/ldsc/1000G_Phase3_weights_hm3_no_MHC/weights.hm3_noMHC. 
+
+Beginning analysis at Tue Feb 17 16:04:44 2026
+Reading summary statistics from /Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/0_munge/output/ldsc_munged/SI__EUR_Female_MM__trait1__AbilityToConfide.sumstats.gz ...
+Read summary statistics for 746386 SNPs.
+Reading reference panel LD Score from /Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/reference_data/ldsc/LDscore/LDscore.[1-22] ... (ldscore_fromlist)
+Read reference panel LD Scores for 1190321 SNPs.
+Removing partitioned LD Scores with zero variance.
+Reading regression weight LD Score from /Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/reference_data/ldsc/1000G_Phase3_weights_hm3_no_MHC/weights.hm3_noMHC.[1-22] ... (ldscore_fromlist)
+Read regression weight LD Scores for 1187349 SNPs.
+After merging with reference panel LD, 739502 SNPs remain.
+After merging with regression SNP LD, 737061 SNPs remain.
+Computing rg for phenotype 2/2
+Reading summary statistics from /Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/0_munge/output/ldsc_munged/SI__EUR_Female_MM__trait2__FreqSoc.sumstats.gz ...
+Read summary statistics for 1217311 SNPs.
+After merging with summary statistics, 737061 SNPs remain.
+737029 SNPs with valid alleles.
+
+Heritability of phenotype 1
+---------------------------
+Total Observed scale h2: 0.0352 (0.0029)
+Lambda GC: 1.1523
+Mean Chi^2: 1.1725
+Intercept: 1.0083 (0.0077)
+Ratio: 0.0481 (0.0444)
+
+Heritability of phenotype 2/2
+-----------------------------
+Total Observed scale h2: 0.0398 (0.0032)
+Lambda GC: 1.1747
+Mean Chi^2: 1.2066
+Intercept: 1.0185 (0.0078)
+Ratio: 0.0894 (0.0376)
+
+Genetic Covariance
+------------------
+Total Observed scale gencov: 0.0368 (0.003)
+Mean z1*z2: 1.124
+Intercept: 0.9516 (0.0076)
+
+Genetic Correlation
+-------------------
+Genetic Correlation: 0.984 (0.0039)
+Z-score: 252.9878
+P: 0.
+
+
+Summary of Genetic Correlation Results
+                                                                                                                                                                                                                   p1                                                                                                                                                                                                           p2     rg     se        z      p  h2_obs  h2_obs_se  h2_int  h2_int_se  gcov_int  gcov_int_se
+/Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/0_munge/output/ldsc_munged/SI__EUR_Female_MM__trait1__AbilityToConfide.sumstats.gz /Users/mahmoudabdelmoneum/Desktop/MIT/UROPS/TsaiKellis_Reorganized/UKBB/GWAS/BOLT-LMM/Run_1/UKBB-SI-Genetics/5_Functional_Genomics/0_munge/output/ldsc_munged/SI__EUR_Female_MM__trait2__FreqSoc.sumstats.gz 0.9840 0.0039 252.9878 0.0000  0.0398     0.0032  1.0185     0.0078    0.9516       0.0076
+
+Analysis finished at Tue Feb 17 16:04:52 2026
+Total time elapsed: 8.51s

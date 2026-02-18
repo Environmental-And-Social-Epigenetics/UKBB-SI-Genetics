@@ -294,54 +294,33 @@ Based on Day et al. (2018), we expect:
 
 ## Downstream Analyses
 
-### 1. LD Score Regression
+BOLT-LMM outputs are converted to MTAG input format (Step 2 scripts) and fed into `3_MTAG/` for multi-trait analysis. MTAG outputs then serve as inputs for two downstream modules:
 
-Estimate heritability and genetic correlations:
+### Mendelian Randomization (`4_Mendelian_Randomization/`)
 
-```bash
-# Heritability for each phenotype-population
-for pop in EUR_MM EUR_Male EUR_Female; do
-    for pheno in Loneliness FreqSoc AbilityToConfide; do
-        ldsc.py \
-            --h2 results/Day_NoPCs/${pop}/bolt_${pheno}.Day_NoPCs.stats.gz \
-            --ref-ld-chr eur_w_ld_chr/ \
-            --w-ld-chr eur_w_ld_chr/ \
-            --out ${pheno}_${pop}.h2
-    done
-done
+Two-sample MR testing causal relationships between SI traits and neuroimaging outcomes using TwoSampleMR.
 
-# Genetic correlation between males and females
-ldsc.py \
-    --rg results/Day_NoPCs/EUR_Male/bolt_Loneliness.Day_NoPCs.stats.gz,results/Day_NoPCs/EUR_Female/bolt_Loneliness.Day_NoPCs.stats.gz \
-    --ref-ld-chr eur_w_ld_chr/ \
-    --w-ld-chr eur_w_ld_chr/ \
-    --out Loneliness_Male_vs_Female.rg
-```
+### Functional Genomics (`5_Functional_Genomics/`)
 
-### 2. Cross-Trait Genetic Correlations
+A comprehensive, implemented post-GWAS pipeline covering all standard functional interpretation analyses. The pipeline operates on MTAG summary statistics and includes:
 
-Compare with other traits:
-- Mental health: Depression, anxiety, bipolar disorder
-- Personality: Big Five traits (especially extraversion, neuroticism)
-- Cognitive: Educational attainment, intelligence
-- Physical health: BMI, cardiovascular disease
+| Analysis | Tool | Script Location |
+|---|---|---|
+| SNP heritability (h2) | LDSC | `5_Functional_Genomics/1_LDSC/scripts/run_h2.sh` |
+| Genetic correlations (internal) | LDSC | `5_Functional_Genomics/1_LDSC/scripts/run_rg_internal.sh` |
+| Genetic correlations (external traits) | LDSC | `5_Functional_Genomics/1_LDSC/scripts/run_rg_external.sh` |
+| Partitioned heritability | LDSC | `5_Functional_Genomics/1_LDSC/scripts/run_partitioned_h2.sh` |
+| Cell-type heritability | LDSC | `5_Functional_Genomics/1_LDSC/scripts/run_celltype_h2.sh` |
+| Gene-based association | MAGMA | `5_Functional_Genomics/2_MAGMA/scripts/02_gene_analysis.sh` |
+| Pathway/gene-set enrichment | MAGMA | `5_Functional_Genomics/2_MAGMA/scripts/03_geneset_analysis.sh` |
+| Tissue-expression enrichment | MAGMA | `5_Functional_Genomics/2_MAGMA/scripts/04_tissue_expression.sh` |
+| Transcriptome-wide association | S-PrediXcan | `5_Functional_Genomics/3_S-PrediXcan/scripts/run_spredixcan.sh` |
+| Cross-tissue aggregation | S-MultiXcan | `5_Functional_Genomics/3_S-PrediXcan/scripts/run_smultixcan.sh` |
+| Fine-mapping | SuSiE | `5_Functional_Genomics/4_Fine_Mapping/scripts/03_run_susie.R` |
+| GWAS-eQTL colocalization | coloc | `5_Functional_Genomics/5_Colocalization/scripts/run_coloc.R` |
+| Integrated gene prioritization | Custom | `5_Functional_Genomics/6_Visualization/scripts/build_gene_prioritization_table.py` |
 
-### 3. Polygenic Risk Scores
-
-```bash
-# Build PRS using PRSice-2 or LDpred2
-# Can predict loneliness in independent cohorts
-# Assess sex-specific PRS performance
-```
-
-### 4. Meta-Analysis
-
-Combine male and female results:
-```bash
-# Use METAL or similar
-# Weight by sample size or inverse variance
-# Test for heterogeneity (sex differences)
-```
+See `../5_Functional_Genomics/README.md` for full setup and execution instructions.
 
 ---
 
